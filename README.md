@@ -25,7 +25,7 @@ plt.show()
 
 ### Results
 
-![Visualization of Top Skills for Data Roles](Project\images\skill_demand_all_data_roles.png)
+![Visualization of Top Skills for Data Roles](https://raw.githubusercontent.com/jtrangit/Python-Data-Analytics/main/Project/images/skill_demand_all_data_roles.png)
 
 ### Insights
 - Python and SQL are by far the most prevalent skills among the most common data roles
