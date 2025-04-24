@@ -9,8 +9,8 @@ To find the most demanded skills for the most popular data jobs
 This highlights the most popular data jobs and their top skills, giving insight
 to what skills are most important to consider depending on the role you are looking at
 
-Here are the details from my Juypter notebook:
-[03_Skill_Demand.ipynb](Project\03_Skill_Demand.ipynb)
+Here are the details from my Jupyter notebook:
+[03_Skill_Demand.ipynb](Project/03_Skill_Demand.ipynb)
 
 ### Visualize Data
 ```
