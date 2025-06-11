@@ -139,6 +139,11 @@ plt.show()
 
 ### Results
 
-![Highest Paid Skills for Data Analysts]()
+![Highest Paid Skills & Most in Demand Skills for Data Analysts](https://raw.githubusercontent.com/jtrangit/Python-Data-Analytics/main/Project/images/highest_paid_and_demanded_skills_data.png)
 
-![Most in Demand Skills for Data Analysts]()
+### Insights
+
+- The highest paid skills for Data Analysts are not the most in demand skills, these skills and technologies have a salary of over $145,000 a year.
+- These skills are hyper specialized as these are outliers, for each these skills there are less than 5 jobs that include these skills.
+- Meanwhile the most in demand skills have jobs that pay around $80,000-$100,000 a year.
+- These high demand skills are the fundamental skills for Data Roles. Data roles median salary is likely to increase depending on seniority and any new and specialized skills/technologies which is likely shown in the highest paid skills.
