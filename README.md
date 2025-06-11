@@ -147,3 +147,60 @@ plt.show()
 - These skills are hyper specialized as these are outliers, for each these skills there are less than 5 jobs that include these skills.
 - Meanwhile the most in demand skills have jobs that pay around $80,000-$100,000 a year.
 - These high demand skills are the fundamental skills for Data Roles. Data roles median salary is likely to increase depending on seniority and any new and specialized skills/technologies which is likely shown in the highest paid skills.
+
+## 4. What are the most optimal skills to learn for Data Roles
+
+### Visualize Data
+
+```python
+
+from adjustText import adjust_text
+
+sns.scatterplot(
+    data= df_skills_tech,
+    x='skill_percent',
+    y='median_salary',
+    hue='technology'
+)
+
+sns.despine()
+sns.set_theme(style='ticks')
+
+# Prepare texts for adjustText
+texts = []
+for i, txt in enumerate(df_DA_skills_high_demand.index):
+    texts.append(plt.text(df_DA_skills_high_demand['skill_percent'].iloc[i], df_DA_skills_high_demand['median_salary'].iloc[i], txt))
+
+# Adjust text to avoid overlap
+adjust_text(texts, expand=(2, 2), arrowprops=dict(arrowstyle='->', color='gray'))
+
+# Set axis labels, title, and legend
+plt.xlabel('Percent of Data Analyst Jobs')
+plt.ylabel('Median Yearly Salary')
+plt.title('Most Optimal Skills for Data Analysts in the US')
+plt.legend(title='Technology')
+
+from matplotlib.ticker import PercentFormatter
+ax = plt.gca()
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K'))
+ax.xaxis.set_major_formatter(PercentFormatter(decimals=0))
+
+# Adjust layout and display plot 
+plt.tight_layout()
+plt.show()
+
+
+```
+
+### Results
+
+![Most Optimal Skills for Data Roles](https://raw.githubusercontent.com/jtrangit/Python-Data-Analytics/main/Project/images/optimal_skills.png)
+
+### Insights
+
+- The most in demand skill is SQL, shows up in almost 60% of job postings. While it is the most in demand skill, it's pay is about middle of the pack compared to the pay of other skills.
+- Programming skills and Data Visualization/Analyst tools make up the top 50% of the median yearly salary ($90,000 to $98,000).
+- Non programming and analyst tools (powerpoint, excel, word) make up the least in demand skills (exception being excel), while also being the least paid (around $81,000 to $85,000)
+- The most in demand skills are both programming skills and analyst tools (python, sql, tableau, and excel)
+- The most paid skills are Oracle and Python both making around $95,000-$97,000. While python is a highly sought after skill, Oracle is not (making up <5% of job postings). Meaning, Oracle being a cloud technology is a highly specialized skill with low demand but for high paying data roles.
+- The most optimal skills to pursue would be Programming skills, analyst tools, and then maybe cloud technologies. Programming skills and analyst tools make up the bulk of most Data Roles, then adding a specialized skill like Oracle would qualify you for a specialized role with a higher pay.
