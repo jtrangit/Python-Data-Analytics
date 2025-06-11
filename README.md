@@ -100,3 +100,45 @@ plt.show()
 - More senior and specialized roles like Data Engineers and Scientists also show a higher amount of outliers among the salary distributions, i.e: Data Scientists could potentially make close to $600,000 a year
 - Data Analysts roles both senior and non senior jobs show the most consistent distribution and deviates less when it comes to outliers.
 - Seniority increases the salary of the role considerably as well as increasing the potential range of outliers, meaning the more senior and specialized data roles could pay a lot more than the standard Analyst role.
+
+### Highest Paid & Most Demanded Skills for Data Roles
+
+### Visualize Data
+
+```python
+
+fig, ax = plt.subplots(2, 1)  
+
+# Top 10 Highest Paid Skills for Data Analysts
+sns.barplot(data=df_DA_top_pay, x='median', y=df_DA_top_pay.index, hue='median', ax=ax[0], palette='dark:b_r')
+ax[0].legend().remove()
+# original code:
+# df_DA_top_pay[::-1].plot(kind='barh', y='median', ax=ax[0], legend=False) 
+ax[0].set_title('Highest Paid Skills for Data Analysts in the US')
+ax[0].set_ylabel('')
+ax[0].set_xlabel('')
+ax[0].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${int(x/1000)}K'))
+
+
+# Top 10 Most In-Demand Skills for Data Analysts')
+sns.barplot(data=df_DA_skills, x='median', y=df_DA_skills.index, hue='median', ax=ax[1], palette='light:b')
+ax[1].legend().remove()
+# original code:
+# df_DA_skills[::-1].plot(kind='barh', y='median', ax=ax[1], legend=False)
+ax[1].set_title('Most In-Demand Skills for Data Analysts in the US')
+ax[1].set_ylabel('')
+ax[1].set_xlabel('Median Salary (USD)')
+ax[1].set_xlim(ax[0].get_xlim())  # Set the same x-axis limits as the first plot
+ax[1].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${int(x/1000)}K'))
+
+sns.set_theme(style='ticks')
+plt.tight_layout()
+plt.show()
+
+```
+
+### Results
+
+![Highest Paid Skills for Data Analysts]()
+
+![Most in Demand Skills for Data Analysts]()
