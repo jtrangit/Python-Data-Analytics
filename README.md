@@ -68,3 +68,35 @@ for i in range(5):
 - Excel mostly stayed the same being the 2nd most in demand skill, but there was a small increment of time where it dropped significantly (between August and October) but returned to a little below peak popularity by the end of the year.
 - Python and Tableau both showed a stable demand and were very similar in demand, but by the end of the year Python surpassing Tableau just slightly.
 - Power BI is the least in demand skill, however throughout the year it showed very stable demand with only minor and slight increases and decreases.
+
+## 3. How well do Data Jobs and skills pay?
+
+### Visualize Data
+
+```python
+
+sns.boxplot(data= df_US_top6, x= "salary_year_avg", y= "job_title_short", order= job_order)
+sns.set_theme(style="ticks")
+
+plt.title("Salary Distributions in the United States")
+plt.xlabel("Yearly Salary (USD)")
+plt.ylabel("")
+plt.xlim(0, 600000)
+ticks_x = plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K')
+plt.gca().xaxis.set_major_formatter(ticks_x)
+plt.show()
+
+```
+
+### Results
+
+![Salary Distribution of Data Jobs in the US](https://raw.githubusercontent.com/jtrangit/Python-Data-Analytics/main/Project/images/data_salary.png)
+
+### Insights
+
+- The big 3 data roles from least paying to highest paying in order are: Data Analysts, Data Engineers, and Data Scientists.
+- The pay for senior roles also follow the same trend with Data Scientists and Senior Data Scientists being the highest paid.
+- Of all the data roles, the least paid is on average making around $90,000+ a year and the more specialized roles and senior roles are making over $100,000 a year.
+- More senior and specialized roles like Data Engineers and Scientists also show a higher amount of outliers among the salary distributions, i.e: Data Scientists could potentially make close to $600,000 a year
+- Data Analysts roles both senior and non senior jobs show the most consistent distribution and deviates less when it comes to outliers.
+- Seniority increases the salary of the role considerably as well as increasing the potential range of outliers, meaning the more senior and specialized data roles could pay a lot more than the standard Analyst role.
