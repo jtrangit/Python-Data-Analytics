@@ -1,3 +1,61 @@
+<h1>Overview</h1>
+This project was created to use data from data job postings in 2023 to visualize data and gather insights about the job market with a focus on Data Roles and their pay and most demanded skills.
+
+The data was sourced from Luke Barousse's dataset along with following his Python Data Analytics course which was the foundation for this entire project.
+
+<h1>The Questions</h1>
+These are the questions I wanted to answer
+
+- What are the skills most in demand for the top 3 most popular data roles?
+- How are in-demand skills trending for Data Analysts?
+- How well do jobs and skills pay for Data Analysts?
+- What are the optimal skills for Data Dnalysts to learn? (High Demand and High Paying)
+
+<h1>Tools Used</h1>
+
+- Python: Used for data analysis and finding insights
+    - Libraries used:
+        - Pandas: data analysis
+        - Matplotlib: data visualization
+        - Seaborn: data visualization
+- Jupyter Notebooks: Used for ease of running python scripts showing visuals and keeping notes and insights
+- Visual Studio Code: Coding environment used to execute python scripts
+- Git & GitHub: Version control and public sharing
+
+# Data Preparation and Cleanup
+
+This section outlines the steps taken to prepare the data for analysis, ensuring accuracy and usability.
+
+## Import & Clean Up Data
+
+I start by importing necessary libraries and loading the dataset, followed by initial data cleaning tasks to ensure data quality.
+
+```python
+# Importing Libraries
+import ast
+import pandas as pd
+import seaborn as sns
+from datasets import load_dataset
+import matplotlib.pyplot as plt  
+
+# Loading Data
+dataset = load_dataset('lukebarousse/data_jobs')
+df = dataset['train'].to_pandas()
+
+# Data Cleanup
+df['job_posted_date'] = pd.to_datetime(df['job_posted_date'])
+df['job_skills'] = df['job_skills'].apply(lambda x: ast.literal_eval(x) if pd.notna(x) else x)
+```
+
+## Filter US Jobs
+
+To focus my analysis on the U.S. job market, I apply filters to the dataset, narrowing down to roles based in the United States.
+
+```python
+df_US = df[df['job_country'] == 'United States']
+
+```
+
 # The Analysis
 
 ## 1. What are the most demanded skills for the top 3 most popular data roles?
@@ -204,3 +262,17 @@ plt.show()
 - The most in demand skills are both programming skills and analyst tools (python, sql, tableau, and excel)
 - The most paid skills are Oracle and Python both making around $95,000-$97,000. While python is a highly sought after skill, Oracle is not (making up <5% of job postings). Meaning, Oracle being a cloud technology is a highly specialized skill with low demand but for high paying data roles.
 - The most optimal skills to pursue would be Programming skills, analyst tools, and then maybe cloud technologies. Programming skills and analyst tools make up the bulk of most Data Roles, then adding a specialized skill like Oracle would qualify you for a specialized role with a higher pay.
+
+# What I learned
+
+Throughout this project I learned a lot about using Python for data analytics through the use of libraries like NumPy and Pandas. I learned how to turn data into something to visually analyze with Matplotlib and Seaborn to create graphs and charts. From visualizing the data and through analyzing I drew conclusions and insights from the data to understand trends and statistics. Through all this I understand the job market for Data Roles a lot more and I can use the insights I've gained in my own pursuit of Data Jobs.
+
+# Challenges I faced
+
+- Complex Python Scripting: when really diving deep into analysis, in order to get the data cleaned up and organized so that it can be interpreted I had to use long and complex python scripts which was a challenge as I don't have much experience using python for analytics
+- Creating Clean and Readable Visualizations: It was a challenge learning how to use matplotlib and seaborn in a way to create visuals that were easy to read and understand
+- Formulating Insights: even after getting the data cleaned up, then creating clean and readable visualizations actually analyzing the data on the visuals was a challenge. I really needed to think about what I was looking at and what the data is showing me and what I could take from it.
+
+# Conclusion
+
+The data and analysis has given me a deeper understanding of using Python for Data Analytics as well as the trends and nuances of Data Jobs in the US,
